@@ -22,10 +22,10 @@ export function Movies(){
             <Text style={style.title}>Filmes</Text>
           </View>
           <View style={style.list}>
-            <FlatList style={style.movielist} data={movie} keyExtractor={item=>item.id} renderItem={({item}) =>(
-              <TouchableOpacity>
+            <FlatList data={movie} keyExtractor={item=>item.id} renderItem={({item}) =>(
+              <TouchableOpacity style={style.movielist}>
                 <Image style={style.image} source={{uri:`https://image.tmdb.org/t/p/w500${item.poster_path}`}}/>
-                <Text>{item.title}</Text>
+                <Text style={style.movietitle}>{item.title}</Text>
               </TouchableOpacity>
             )}/>
           <StatusBar style="auto"/>
@@ -62,17 +62,25 @@ const style = StyleSheet.create({
 
   },
   movielist:{
-    padding:50,
+    marginVertical:5,
     flexDirection:"row",
-    backgroundColor:"blue",
+    backgroundColor:"#0f0f0f",
+    borderRadius:5,
   },
   list:{
     flex:1,
     paddingHorizontal:20,
-    marginTop:10,
-    paddingTop:15,
-    backgroundColor:"green",
+    paddingVertical:10,
+    backgroundColor:"#0a0a0a",
   },
+  movietitle:{
+    flex:1,
+    color:"#fff",
+    textAlignVertical:"center",
+    fontSize:24,
+    paddingHorizontal:10,
+
+  }
   
 
 })
